@@ -1,0 +1,50 @@
+﻿.row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+    .row div {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .row div input {
+            width: 350px;
+            padding: 8px 5px;
+            border: 1px solid #dddddd;
+            outline-color: #dddddd;
+            border-radius: 5px;
+        }
+
+            .row div input[type="file"] {
+                width: 1344px;
+            }
+
+        .row div textarea {
+            width: 1344px;
+            height: 150px;
+            padding: 8px 5px;
+            border: 1px solid #dddddd;
+            outline-color: #dddddd;
+            border-radius: 5px;
+        }
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 105px;
+}
+
+    .submit button {
+        padding: 10px 75px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        border: 1px solid #dddddd;
+        outline-color: #dddddd;
+    }
+
+        .submit button:hover {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background: rgb(127, 206, 243);
+        }

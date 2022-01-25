@@ -1,0 +1,63 @@
+﻿body {
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .user img {
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+.username {
+    font-size: 1.6rem;
+}
+
+.container-home {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+}
+
+.menu {
+    width: 12%;
+    /* border: 1px solid black; */
+    background-color: aliceblue;
+    height: 100%;
+}
+
+.menu-item {
+    padding: 15px 30px;
+    cursor: pointer;
+}
+
+    .menu-item a {
+        display: block;
+        user-select: none;
+    }
+
+    .menu-item:hover {
+        background: rgb(127, 206, 243);
+    }
+
+.content {
+    width: 85%;
+}
+
+    .content form {
+        margin-bottom: 50px;
+    }

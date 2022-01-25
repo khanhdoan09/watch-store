@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "ViewProduct";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+
+    <link rel="stylesheet" href="~/Content/css/admin/info_product.css">
+}
+
+
+
+<div class="function">
+    <button class="add">
+        <a href="./add_product.html">Add Product</a>
+    </button>
+    <form action="" method="post">
+        <input type="text" name="search">
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+
+</div>
+<div class="container-home">
+    <div class="menu">
+        <ul>
+            <li class="menu-item">
+                <a href="./index.html">Product</a>
+            </li>
+            <li class="menu-item">
+                <a href="">Account</a>
+            </li>
+            <li class="menu-item">
+                <a href="">Order</a>
+            </li>
+            <li class="menu-item">
+                <a href="./add_product.html">Add Product</a>
+            </li>
+            <li class="menu-item">
+                <a href="./login.html">Log Out</a>
+            </li>
+        </ul>
+    </div>
+    @model WatchShop.Models.ProductDetailAdmin
+    <div class="content">
+        <form action="" method="post">
+     
+                <div class="row">
+                    <div>
+                        <label>Code</label>
+                        <input type="text" name="code" readonly value="@Model.Product.Id">
+                    </div>
+
+                    <div>
+                        <label>Product Name</label>
+                        <input type="text" name="name" readonly value="@Model.Product.Name">
+                    </div>
+
+                    <div>
+                        <label>Price</label>
+                        <input type="text" name="price" readonly value="@Model.Product.Price">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Image</label>
+                        <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
+                            @{
+                                for (int i = 0; i < Model.ListImage.Count; i++)
+                                {
+                                    <img width="300" height="300" src="/Content/image/product/@Model.ListImage[i].Url" />
+                                }
+                            }
+                        </div>
+                       
+                    
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>Discount</label>
+                        <input type="text" name="Discount" readonly value="@Model.Product.Discount">
+                    </div>
+
+                    <div>
+                        <label>Quantity Import</label>
+                        <input type="text" name="QuantityImport" readonly value="@Model.Product.Import">
+                    </div>
+
+                    <div>
+                        <label>Brand</label>
+                        <input type="text" name="Brand" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Gender</label>
+                        <input type="text" name="Gender" readonly value="@Model.Product.Gender">
+                    </div>
+
+                    <div>
+                        <label>Origin</label>
+                        <input type="text" name="Origin" readonly value="@Model.Product.Origin">
+                    </div>
+
+                    <div>
+                        <label>Warranty Period</label>
+                        <input type="text" name="Warranty Period" readonly value="@Model.Product.WarrantyPeriod">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Diameter</label>
+                        <input type="text" name="Diameter" readonly value="@Model.Product.Diameter">
+                    </div>
+
+                    <div>
+                        <label>Material</label>
+                        <input type="text" name="Material" readonly value="@Model.Product.Material">
+                    </div>
+
+                    <div>
+                        <label>Strap</label>
+                        <input type="text" name="Strap" readonly value="@Model.Product.Strap">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Apparatus</label>
+                        <input type="text" name="Apparatus" readonly value="@Model.Product.Apparatus">
+                    </div>
+
+                    <div>
+                        <label>Water Proof</label>
+                        <input type="text" name="WaterProof" readonly value="@Model.Product.Waterproof">
+                    </div>
+
+                    <div>
+                        <label>Date Import</label>
+                        <input type="date" name="DateImport" readonly value="@Model.Product.CreateDate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Description</label>
+                        <textarea name="description" readonly>@Model.Product.Description</textarea>
+                    </div>
+                </div>
+            
+
+
+            <div class="submit">
+                <button type="submit">Back</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

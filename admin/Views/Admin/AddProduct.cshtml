@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    <link rel="stylesheet" href="~/Content/css/admin/info_product.css">
+}
+
+@section AddJS{
+    <script src="~/Content/js/admin/admin.js"></script>
+}
+
+<div class="function">
+
+    <form action="" method="post">
+        <input type="text" name="search">
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+
+</div>
+
+<div class="container-home">
+    <div class="menu">
+        <ul>
+            <li class="menu-item">
+                <a href="./index.html">Product</a>
+            </li>
+            <li class="menu-item">
+                <a href="./account.html">Account</a>
+            </li>
+            <li class="menu-item">
+                <a href="./order.html">Order</a>
+            </li>
+            <li class="menu-item">
+                <a href="./add_product.html">Add Product</a>
+            </li>
+            <li class="menu-item">
+                <a href="./login.html">Log Out</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+
+        <h1>@ViewBag.Id</h1>
+        <h1>@ViewBag.Name</h1>
+        <h1>@ViewBag.Description</h1>
+        
+        <!--
+        <form action="/Admin/AddProduct" method="post" enctype="multipart/form-data">
+            <input name="image1" type="file" id="imgLoad1" required />
+            <img src="~/UploadFiles/@ViewBag.LinkImg1" width="300" height="300" id="imgShow1" />
+            <input name="image2" type="file" id="imgLoad2" required />
+            <img src="~/UploadFiles/@ViewBag.LinkImg2" width="300" height="300" id="imgShow2" />
+            <input name="image3" type="file" id="imgLoad3" required />
+            <img src="~/UploadFiles/@ViewBag.LinkImg3" width="300" height="300" id="imgShow3" />
+            <input name="image4" type="file" id="imgLoad4" required />
+            <img src="~/UploadFiles/@ViewBag.LinkImg4" width="300" height="300" id="imgShow4" />
+            <input name="image5" type="file" id="imgLoad5" required />
+            <img src="~/UploadFiles/@ViewBag.LinkImg5" width="300" height="300" id="imgShow5" />
+            <button type="submit">Submit</button>
+        </form>
+        -->
+        
+        @model WatchShop.Models.Product
+        <form action="/Admin/SaveAddProduct" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Id)
+                    @Html.TextBoxFor(model => model.Id, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Price)
+                    @Html.TextBoxFor(model => model.Price, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Image</label>
+                    <input name="image1" type="file" id="imgLoad1" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg1" width="300" height="300" id="imgShow1" />
+                    <input name="image2" type="file" id="imgLoad2" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg2" width="300" height="300" id="imgShow2" />
+                    <input name="image3" type="file" id="imgLoad3" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg3" width="300" height="300" id="imgShow3" />
+                    <input name="image4" type="file" id="imgLoad4" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg4" width="300" height="300" id="imgShow4" />
+                    <input name="image5" type="file" id="imgLoad5" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg5" width="300" height="300" id="imgShow5" />
+                    <!--
+    <form action="/Admin/UploadImage" method="post" enctype="multipart/form-data">
+        <div>Hinh anh</div>
+        <input name="image" type="file" />
+
+        <input type="submit" value="Upload" />
+    </form>
+    <h1>@ViewBag.LinkImage</h1>
+    -->
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Discount)
+                    @Html.TextBoxFor(model => model.Discount, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Import)
+                    @Html.TextBoxFor(model => model.Import, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Import, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Brand)
+                    @Html.TextBoxFor(model => model.Brand, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Gender)
+                    @Html.TextBoxFor(model => model.Gender, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Origin)
+                    @Html.TextBoxFor(model => model.Origin, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.WarrantyPeriod)
+                    @Html.TextBoxFor(model => model.WarrantyPeriod, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.WarrantyPeriod, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Diameter)
+                    @Html.TextBoxFor(model => model.Diameter, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Material)
+                    @Html.TextBoxFor(model => model.Material, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Material, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Strap)
+                    @Html.TextBoxFor(model => model.Strap, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Strap, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Apparatus)
+                    @Html.TextBoxFor(model => model.Apparatus, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Apparatus, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Waterproof)
+                    @Html.TextBoxFor(model => model.Waterproof, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Waterproof, "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.CreateDate)
+                    @Html.TextBoxFor(model => model.CreateDate, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Description)
+                    @Html.TextBoxFor(model => model.Description, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="submit">
+                <button type="submit">ADD</button>
+            </div>
+
+        </form>
+    </div>
+</div>
