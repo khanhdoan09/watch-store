@@ -14,17 +14,6 @@ namespace WatchShop.Models
     
     public partial class Image
     {
-        public Image()
-        {
-        }
-
-        public Image(string id, string url, string product)
-        {
-            Id = id;
-            Url = url;
-            Product = product;
-        }
-
         public string Id { get; set; }
         public string Url { get; set; }
         public string Product { get; set; }

@@ -12,126 +12,54 @@ namespace WatchShop.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    [Table("Products")]
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product(object id)
+        public Product()
         {
             this.Images = new HashSet<Image>();
             this.OrderDetails = new HashSet<OrderDetail>();
         }
-
-        public Product()
-        {
-          
-        }
-
-        public Product(string id, string name, string avatar, double price, double discount, double import, double stock, string brand, string gender, string origin, double? warrantyPeriod, string diameter, string material, string strap, string wireWidth, string apparatus, string waterproof, string description, DateTime? createDate)
-        {
-            Id = id;
-            Name = name;
-            Avatar = avatar;
-            Price = price;
-            Discount = discount;
-            Import = import;
-            Stock = stock;
-            Brand = brand;
-            Gender = gender;
-            Origin = origin;
-            WarrantyPeriod = warrantyPeriod;
-            Diameter = diameter;
-            Material = material;
-            Strap = strap;
-            WireWidth = wireWidth;
-            Apparatus = apparatus;
-            Waterproof = waterproof;
-            Description = description;
-            CreateDate = createDate;
-        }
-
-        public Product(String Id, String Name, double? price, string gender, double Import)
-        {
-            this.Id = Id;
-            this.Name = Name;
-            this.Price = Price;
-            this.Gender = Gender;
-            this.Import = Import;   
-        }
+    
 
         public string Id { get; set; }
         public string Name { get; set; }
         public string Avatar { get; set; }
+        [Range(0, double.MaxValue, ErrorMessage = "Price number is not valid")]
         public double Price { get; set; }
-        public double Discount { get; set; }
-        public double Import { get; set; }
-        public double Stock { get; set; }
+
+        [Range(0, 100, ErrorMessage = "Discount number is not valid")]
+        public Nullable<double> Discount { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Import number is not valid")]
+        public Nullable<double> Import { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Stock number is not valid")]
+        public Nullable<double> Stock { get; set; }
         public string Brand { get; set; }
         public string Gender { get; set; }
         public string Origin { get; set; }
-
+        [DisplayName("Warranty Period")]
         public Nullable<double> WarrantyPeriod { get; set; }
+        [Range(0, double.MaxValue, ErrorMessage = "Diameter number is not valid")]
         public string Diameter { get; set; }
         public string Material { get; set; }
         public string Strap { get; set; }
-
+        [Range(0, double.MaxValue, ErrorMessage = "Wire width number is not valid")]
+        [DisplayName("Wire Width")]
         public string WireWidth { get; set; }
         public string Apparatus { get; set; }
         public string Waterproof { get; set; }
         public string Description { get; set; }
-       
+        [DisplayName("Create Date")]
         public Nullable<System.DateTime> CreateDate { get; set; }
-
+        [DisplayName("Update Date")]
         public Nullable<System.DateTime> UpdateDate { get; set; }
-
-        /*
-        [Required]
-        public string Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Avatar { get; set; }
-        [Required]
-        public double Price { get; set; }
-        [Required]
-        public double Discount { get; set; }
-        [Required]
-        public double Import { get; set; }
-        [Required]
-        public double Stock { get; set; }
-        [Required]
-        public string Brand { get; set; }
-        [Required]
-        public string Gender { get; set; }
-        [Required]
-        public string Origin { get; set; }
-        [Required]
-        [Display(Name="Warranty Period")]
-        public Nullable<double> WarrantyPeriod { get; set; }
-        [Required]
-        public string Diameter { get; set; }
-        [Required]
-        public string Material { get; set; }
-        [Required]
-        public string Strap { get; set; }
-        [Required]
-        [Display(Name = "Wire Width")]
-        public string WireWidth { get; set; }
-        [Required]
-        public string Apparatus { get; set; }
-        [Required]
-        public string Waterproof { get; set; }
-        [Required]
-        public string Description { get; set; }
-        [Required]
-        [Display(Name = "Create Date")]
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        [Required]
-        [Display(Name = "Update Date")]
-        public Nullable<System.DateTime> UpdateDate { get; set; }
-        */
         [JsonIgnore]
         public virtual Brand Brand1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -140,7 +68,5 @@ namespace WatchShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [JsonIgnore]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
-      
     }
 }

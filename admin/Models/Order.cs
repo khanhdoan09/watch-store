@@ -11,20 +11,24 @@ namespace WatchShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Orders")]
     public partial class Order
     {
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
         }
-    
+
         public string Id { get; set; }
         public string Status { get; set; }
-        public Nullable<int> Customer { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-        public Nullable<System.DateTime> OderDue { get; set; }
+        public string Customer { get; set; }
+        public DateTime OrderDate { get; set; }
+        public DateTime OderDue { get; set; }
     
         public virtual Customer Customer1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

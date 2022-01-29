@@ -11,15 +11,38 @@ namespace WatchShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Orders")]
+
     public partial class OrderDetail
     {
+        public OrderDetail()
+        {
+        }
+
+        public OrderDetail(string id, string product, int quantity, string orderId, Order order, Product product1)
+        {
+            Id = id;
+            Product = product;
+            Quantity = quantity;
+            OrderId = orderId;
+            Order = order;
+            Product1 = product1;
+        }
+
+        [Key]
         public string Id { get; set; }
         public string Product { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int Quantity { get; set; }
         public string OrderId { get; set; }
-    
         public virtual Order Order { get; set; }
         public virtual Product Product1 { get; set; }
+
+        public double GetPriceByQuantity(double Price)
+        {
+            return Quantity * Price;   
+        }
     }
 }

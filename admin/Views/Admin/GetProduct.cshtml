@@ -11,19 +11,25 @@
 
 <div class="function">
     <button class="add">
-        <a href="./add_product.html">Add Product</a>
+        @Html.ActionLink("Add Product", "AddProduct", "Admin")
     </button>
 
     @using (Html.BeginForm("GetProduct", "Admin", FormMethod.Post, new { id = "form-product" }))
     {
-
-        <select value="brand" name="type" id="type-product">
-            <option value="id">ID</option>
-            <option value="brand" selected>BRAND</option>
-            <option value="name">NAME</option>
-            <option value="price">PRICE</option>
+        @functions {
+                string GetTypeSelected(string Type, string TypeSelected) {
+                if (Type.Equals(TypeSelected))
+                    return "selected";
+                return "";
+                }
+            }
+        <select name="type" id="type-product">
+            <option value="Id" @GetTypeSelected("Id",ViewBag.Type)>ID</option>
+            <option value="Brand" @GetTypeSelected("Brand",ViewBag.Type)>BRAND</option>
+            <option value="Name" @GetTypeSelected("Name",ViewBag.Type)>NAME</option>
         </select>
-        <input type="text" name="search" value="Titan" id="search-product">
+
+        <input type="text" name="search" id="search-product" value="@ViewBag.Search">
         <button type="submit" id="product-submit">
             <i class="fas fa-search"></i>
         </button>
@@ -33,25 +39,10 @@
 
 </div>
 <div class="container-home">
-    <div class="menu">
-        <ul>
-            <li class="menu-item">
-                <a href="./index.html">Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./account.html">Account</a>
-            </li>
-            <li class="menu-item">
-                <a href="./order.html">Order</a>
-            </li>
-            <li class="menu-item">
-                <a href="./add_product.html">Add Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./login.html">Log Out</a>
-            </li>
-        </ul>
-    </div>
+
+    @Html.Partial("MenuBarAdmin")
+
+
     <div class="content">
         <table id="table-product">
             <tr>

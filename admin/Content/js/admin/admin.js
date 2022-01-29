@@ -1,51 +1,51 @@
 ﻿
 function OnSuccess(e) {
-    alert(JSON.stringify(e) + JSON.parse(e))
+    alert(e.text)
 }
 
 
 $('document').ready(function () {
-    $("#imgLoad1").change(function () {
+    $("#imgLoad_1").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#imgShow1').attr('src', e.target.result);
+                $('#imgShow_1').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
     });
-    $("#imgLoad2").change(function () {
+    $("#imgLoad_2").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#imgShow2').attr('src', e.target.result);
+                $('#imgShow_2').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
     });
-    $("#imgLoad3").change(function () {
+    $("#imgLoad_3").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#imgShow3').attr('src', e.target.result);
+                $('#imgShow_3').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
     });
-    $("#imgLoad4").change(function () {
+    $("#imgLoad_4").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#imgShow4').attr('src', e.target.result);
+                $('#imgShow_4').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
     });
-    $("#imgLoad5").change(function () {
+    $("#imgLoad_5").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#imgShow5').attr('src', e.target.result);
+                $('#imgShow_5').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
@@ -69,17 +69,17 @@ $(function () {
             async: false,
             success: function (data) {
                 listProduct = JSON.parse(data)
+                alert(listProduct)
             },
             error: function (errormessage) {
                 alert("error");
             }
         })
        
-        $("#form-product").submit()
-        });
+     
 
-});
-*/
+});*/
+
 
 $(function() {
     $(".remove-product").each(function () {
@@ -87,16 +87,40 @@ $(function() {
             let id = $(this).data("id")
             let check = confirm(`Are you sure wanna delete this ${id}`)
             if (check) {
-                $(`#tr-product__${id}`).remove()
                 $.ajax({
                     url: `/Admin/RemoveProduct?Id=${id}`,
                     type: "POST",
                     async: false,
                     success: function (data) {
                         alert(data.text)
+                        $(`#tr-product__${id}`).remove()
                     },
                     error: function (errormessage) {
                         alert("error");
+                    }
+                })
+            }
+        });
+    });
+})
+
+
+$(function () {
+    $(".remove-user").each(function () {
+        $(this).click(() => {
+            let id = $(this).data("user")
+            let check = confirm(`Are you sure wanna delete this ${id}`)
+            if (check) {
+                $.ajax({
+                    url: `/Admin/RemoveCustomer?Id=${id}`,
+                    type: "POST",
+                    async: false,
+                    success: function (data) {
+                        alert(data.text)
+                        $(`#tr-product__${id}`).remove()
+                    },
+                    error: function (errormessage) {
+                        alert(JSON.stringify(errormessage));
                     }
                 })
             }

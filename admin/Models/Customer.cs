@@ -11,7 +11,10 @@ namespace WatchShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Customers")]
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +23,8 @@ namespace WatchShop.Models
             this.Orders = new HashSet<Order>();
         }
     
-        public int Id { get; set; }
+        [Key]
+        public string Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Avatar { get; set; }

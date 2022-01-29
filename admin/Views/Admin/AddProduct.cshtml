@@ -22,31 +22,8 @@
 </div>
 
 <div class="container-home">
-    <div class="menu">
-        <ul>
-            <li class="menu-item">
-                <a href="./index.html">Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./account.html">Account</a>
-            </li>
-            <li class="menu-item">
-                <a href="./order.html">Order</a>
-            </li>
-            <li class="menu-item">
-                <a href="./add_product.html">Add Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./login.html">Log Out</a>
-            </li>
-        </ul>
-    </div>
+    @Html.Partial("MenuBarAdmin")
     <div class="content">
-
-        <h1>@ViewBag.Id</h1>
-        <h1>@ViewBag.Name</h1>
-        <h1>@ViewBag.Description</h1>
-        
         <!--
         <form action="/Admin/AddProduct" method="post" enctype="multipart/form-data">
             <input name="image1" type="file" id="imgLoad1" required />
@@ -62,7 +39,7 @@
             <button type="submit">Submit</button>
         </form>
         -->
-        
+
         @model WatchShop.Models.Product
         <form action="/Admin/SaveAddProduct" method="post" enctype="multipart/form-data">
             <div class="row">
@@ -87,25 +64,25 @@
             <div class="row">
                 <div>
                     <label>Image</label>
-                    <input name="image1" type="file" id="imgLoad1" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg1" width="300" height="300" id="imgShow1" />
-                    <input name="image2" type="file" id="imgLoad2" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg2" width="300" height="300" id="imgShow2" />
-                    <input name="image3" type="file" id="imgLoad3" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg3" width="300" height="300" id="imgShow3" />
-                    <input name="image4" type="file" id="imgLoad4" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg4" width="300" height="300" id="imgShow4" />
-                    <input name="image5" type="file" id="imgLoad5" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg5" width="300" height="300" id="imgShow5" />
+                    <input name="image1" type="file" id="imgLoad_1" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg1" width="300" height="300" id="imgShow_1" />
+                    <input name="image2" type="file" id="imgLoad_2" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg2" width="300" height="300" id="imgShow_2" />
+                    <input name="image3" type="file" id="imgLoad_3" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg3" width="300" height="300" id="imgShow_3" />
+                    <input name="image4" type="file" id="imgLoad_4" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg4" width="300" height="300" id="imgShow_4" />
+                    <input name="image5" type="file" id="imgLoad_5" required />
+                    <img src="~/Content/image/product/@ViewBag.LinkImg5" width="300" height="300" id="imgShow_5" />
                     <!--
-    <form action="/Admin/UploadImage" method="post" enctype="multipart/form-data">
-        <div>Hinh anh</div>
-        <input name="image" type="file" />
+                    <form action="/Admin/UploadImage" method="post" enctype="multipart/form-data">
+                        <div>Hinh anh</div>
+                        <input name="image" type="file" />
 
-        <input type="submit" value="Upload" />
-    </form>
-    <h1>@ViewBag.LinkImage</h1>
-    -->
+                        <input type="submit" value="Upload" />
+                    </form>
+                    <h1>@ViewBag.LinkImage</h1>
+                    -->
                 </div>
 
 
@@ -189,8 +166,13 @@
             </div>
             <div class="row">
                 <div>
+                    @Html.LabelFor(model => model.WireWidth)
+                    @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.WireWidth, "", new { @class = "text-danger" })
+                </div>
+                <div>
                     @Html.LabelFor(model => model.Description)
-                    @Html.TextBoxFor(model => model.Description, new { @required = true })
+                    @Html.TextAreaFor(model => model.Description, new { @required = true })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -7,108 +7,65 @@
 @section AddCSS{
     <link rel="stylesheet" href="~/Content/css/admin/info_product.css">
 }
->
-
-    <div class="function">
-
-        <form action="" method="post">
-            <input type="text" name="search">
-            <button type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
+@section AddJS{
+    <script src="~/Content/js/admin/admin.js"></script>
+}
 
 
+<div class="function">
+
+    <form action="" method="post">
+        <input type="text" name="search">
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+
+</div>
+<div class="container-home">
+
+    @Html.Partial("MenuBarAdmin")
+
+    <div class="content">
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Date Active</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            @model IEnumerable<WatchShop.Models.Customer>
+
+
+            @foreach (var Item in Model)
+            {
+                <tr id="tr-product__@Item.Id">
+                    <td>@Item.Id</td>
+                    <td>chua co thuoc tinh create_date</td>
+                    <td>@Item.Password</td>
+                    <td>chua co thuoc tinh create_date</td>
+                    <td>@Item.Email</td>
+                    <td>chua co thuoc tinh gender</td>
+                    <td>chua co thuoc tinh update_date</td>
+                    <td>@Item.Phone</td>
+                    <td>@Item.Address</td>
+                    <td>chua co thuoc tinh role</td>
+                    <td>
+                        <a data-user="@Item.Id" class="remove-user">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+        </table>
     </div>
-    <div class="container-home">
-        <div class="menu">
-            <ul>
-                <li class="menu-item">
-                    <a href="./index.html">Product</a>
-                </li>
-                <li class="menu-item">
-                    <a href="./account.html">Account</a>
-                </li>
-                <li class="menu-item">
-                    <a href="">Order</a>
-                </li>
-                <li class="menu-item">
-                    <a href="./add_product.html">Add Product</a>
-                </li>
-                <li class="menu-item">
-                    <a href="./login.html">Log Out</a>
-                </li>
-            </ul>
-        </div>
-        <div class="content">
-            <table>
-                <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th>Date Active</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>CCKT01</td>
-                    <td>minhchanh</td>
-                    <td>16/08/2001</td>
-                    <td>minhchanh@gmail.com</td>
-                    <td>Male</td>
-                    <td>14/01/2022</td>
-                    <td>0327172477</td>
-                    <td>Hòa Khánh, Đức Hòa, Long An</td>
-                    <td>0</td>
-
-                    <td>
-                        <a href="">
-                            <i class="fas fa-times"></i>
-                        </a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>CCKT01</td>
-                    <td>minhchanh</td>
-                    <td>16/08/2001</td>
-                    <td>minhchanh@gmail.com</td>
-                    <td>Male</td>
-                    <td>14/01/2022</td>
-                    <td>0327172477</td>
-                    <td>Hòa Khánh, Đức Hòa, Long An</td>
-                    <td>0</td>
-
-                    <td>
-                        <a href="">
-                            <i class="fas fa-times"></i>
-                        </a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>CCKT01</td>
-                    <td>minhchanh</td>
-                    <td>16/08/2001</td>
-                    <td>minhchanh@gmail.com</td>
-                    <td>Male</td>
-                    <td>14/01/2022</td>
-                    <td>0327172477</td>
-                    <td>Hòa Khánh, Đức Hòa, Long An</td>
-                    <td>0</td>
-
-                    <td>
-                        <a href="">
-                            <i class="fas fa-times"></i>
-                        </a>
-
-                    </td>
-                </tr>
-
-            </table>
-        </div>
-    </div>
+</div>

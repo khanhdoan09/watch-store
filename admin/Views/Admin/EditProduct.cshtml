@@ -18,7 +18,7 @@
 
 <div class="function">
     <button class="add">
-        <a href="./add_product.html">Add Product</a>
+        @Html.ActionLink("Add Product", "AddProduct", "Admin")
     </button>
     <form action="" method="post">
         <input type="text" name="search">
@@ -30,141 +30,152 @@
 
 </div>
 <div class="container-home">
-    <div class="menu">
-        <ul>
-            <li class="menu-item">
-                <a href="./index.html">Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="">Account</a>
-            </li>
-            <li class="menu-item">
-                <a href="">Order</a>
-            </li>
-            <li class="menu-item">
-                <a href="./add_product.html">Add Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./login.html">Log Out</a>
-            </li>
-        </ul>
-    </div>
-    @model WatchShop.Models.ProductDetailAdmin
+
+    @Html.Partial("MenuBarAdmin")
+
+
+    @model WatchShop.Models.Product
     <div class="content">
 
         @using (Ajax.BeginForm("SaveEditProduct",
-            "Admin",
-            new { IdOld = @ViewBag.IdEditProduct },
-            new AjaxOptions()
-            {
-                HttpMethod = "POST",
-                OnSuccess = "OnSuccess"
-            },
-            new { enctype = "multipart/form-data" }))
+"Admin",
+new { IdOld = @ViewBag.IdEditProduct },
+new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnSuccess = "OnSuccess"
+},
+new { enctype = "multipart/form-data" }))
         {
 
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Id)
-                    @Html.TextBoxFor(model => model.Product.Id)
+                    @Html.LabelFor(model => model.Id)
+                    @Html.TextBoxFor(model => model.Id)
+                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Name)
-                    @Html.TextBoxFor(model => model.Product.Name)
+                    @Html.LabelFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Price)
-                    @Html.TextBoxFor(model => model.Product.Price)
+                    @Html.LabelFor(model => model.Price)
+                    @Html.TextBoxFor(model => model.Price)
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+
                 </div>
             </div>
             <div class="row">
                 <div>
                     <label>Image</label>
-                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
-                        @{
-                            for (int i = 0; i < Model.ListImage.Count; i++)
-                            {
-                                <img width="300" height="300" src="/Content/image/product/@Model.ListImage[i].Url" />
-                            }
+                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">               
+                        <input name="image_1" type="file" id="imgLoad_1" />
+                        <img width="300" height="300" src="/Content/image/product/@Model.Avatar" id="imgShow_1" />
+
+                        @{int CountI = 1;}
+                        @foreach (var Image in Model.Images)
+                        {
+                            CountI += 1;
+                            <input name="image_@CountI" type="file" id="imgLoad_@CountI" />
+                            <img width="300" height="300" src="/Content/image/product/@Image.Url" id="imgShow_@CountI" />
                         }
                     </div>
-
-
                 </div>
-
-
             </div>
 
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Discount)
-                    @Html.TextBoxFor(model => model.Product.Discount)
+                    @Html.LabelFor(model => model.Discount)
+                    @Html.TextBoxFor(model => model.Discount)
+                    @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Import)
-                    @Html.TextBoxFor(model => model.Product.Import)
+                    @Html.LabelFor(model => model.Import)
+                    @Html.TextBoxFor(model => model.Import)
+                    @Html.ValidationMessageFor(model => model.Import, "", new { @class = "text-danger" })
+
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Brand)
-                    @Html.TextBoxFor(model => model.Product.Brand)
+                    @Html.LabelFor(model => model.Brand)
+                    @Html.TextBoxFor(model => model.Brand)
                 </div>
             </div>
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Gender)
-                    @Html.TextBoxFor(model => model.Product.Gender)
+                    @Html.LabelFor(model => model.Gender)
+                    @Html.TextBoxFor(model => model.Gender)
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Origin)
-                    @Html.TextBoxFor(model => model.Product.Origin)
+                    @Html.LabelFor(model => model.Origin)
+                    @Html.TextBoxFor(model => model.Origin)
+                    @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
+
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.WarrantyPeriod)
-                    @Html.TextBoxFor(model => model.Product.WarrantyPeriod)
+                    @Html.LabelFor(model => model.WarrantyPeriod)
+                    @Html.TextBoxFor(model => model.WarrantyPeriod)
+                    @Html.ValidationMessageFor(model => model.WarrantyPeriod, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Diameter)
-                    @Html.TextBoxFor(model => model.Product.Diameter)
+                    @Html.LabelFor(model => model.Diameter)
+                    @Html.TextBoxFor(model => model.Diameter)
+                    @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Material)
-                    @Html.TextBoxFor(model => model.Product.Material)
+                    @Html.LabelFor(model => model.Material)
+                    @Html.TextBoxFor(model => model.Material)
+                    @Html.ValidationMessageFor(model => model.Material, "", new { @class = "text-danger" })
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Strap)
-                    @Html.TextBoxFor(model => model.Product.Strap)
+                    @Html.LabelFor(model => model.Strap)
+                    @Html.TextBoxFor(model => model.Strap)
+                    @Html.ValidationMessageFor(model => model.Strap, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Apparatus)
-                    @Html.TextBoxFor(model => model.Product.Apparatus)
+                    @Html.LabelFor(model => model.Apparatus)
+                    @Html.TextBoxFor(model => model.Apparatus)
+                    @Html.ValidationMessageFor(model => model.Apparatus, "", new { @class = "text-danger" })
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.Waterproof)
-                    @Html.TextBoxFor(model => model.Product.Waterproof)
+                    @Html.LabelFor(model => model.Waterproof)
+                    @Html.TextBoxFor(model => model.Waterproof)
+                    @Html.ValidationMessageFor(model => model.Waterproof, "", new { @class = "text-danger" })
                 </div>
 
                 <div>
-                    @Html.LabelFor(model => model.Product.CreateDate)
-                    @Html.TextBoxFor(model => model.Product.CreateDate)
+                    @Html.LabelFor(model => model.CreateDate)
+                    @Html.TextBoxFor(model => model.CreateDate)
+                    @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="row">
                 <div>
-                    @Html.LabelFor(model => model.Product.Description)
-                    @Html.TextAreaFor(model => model.Product.Description)
+                    @Html.LabelFor(model => model.WireWidth)
+                    @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.WireWidth, "", new { @class = "text-danger" })
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Description)
+                    @Html.TextAreaFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -173,119 +184,6 @@
             </div>
         }
 
-        <!--
-        <form action="/Admin/SaveEditProduct?IdOld=@ViewBag.IdEditProduct" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Id)
-                    @Html.TextBoxFor(model => model.Product.Id)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Name)
-                    @Html.TextBoxFor(model => model.Product.Name)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Price)
-                    @Html.TextBoxFor(model => model.Product.Price)
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <label>Image</label>
-                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
-                        @{
-                            for (int i = 0; i < Model.ListImage.Count; i++)
-                            {
-                                <img width="300" height="300" src="/Content/image/product/@Model.ListImage[i].Url" />
-                            }
-                        }
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Discount)
-                    @Html.TextBoxFor(model => model.Product.Discount)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Import)
-                    @Html.TextBoxFor(model => model.Product.Import)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Brand)
-                    @Html.TextBoxFor(model => model.Product.Brand)
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Gender)
-                    @Html.TextBoxFor(model => model.Product.Gender)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Origin)
-                    @Html.TextBoxFor(model => model.Product.Origin)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.WarrantyPeriod)
-                    @Html.TextBoxFor(model => model.Product.WarrantyPeriod)
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Diameter)
-                    @Html.TextBoxFor(model => model.Product.Diameter)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Material)
-                    @Html.TextBoxFor(model => model.Product.Material)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Strap)
-                    @Html.TextBoxFor(model => model.Product.Strap)
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Apparatus)
-                    @Html.TextBoxFor(model => model.Product.Apparatus)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.Waterproof)
-                    @Html.TextBoxFor(model => model.Product.Waterproof)
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Product.CreateDate)
-                    @Html.TextBoxFor(model => model.Product.CreateDate)
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    @Html.LabelFor(model => model.Product.Description)
-                    @Html.TextAreaFor(model => model.Product.Description)
-                </div>
-            </div>
-
-            <div class="submit">
-                <button type="submit">Save</button>
-            </div>
-
-        </form>
-        -->
     </div>
 </div>
 

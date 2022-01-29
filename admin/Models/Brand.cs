@@ -19,7 +19,13 @@ namespace WatchShop.Models
         {
             this.Products = new HashSet<Product>();
         }
-    
+
+        public Brand(string Id, string Name)
+        {
+            Id = Id;
+            Name = Name;
+        }
+
         public string Id { get; set; }
         public string Name { get; set; }
     

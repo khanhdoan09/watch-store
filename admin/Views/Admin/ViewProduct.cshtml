@@ -10,7 +10,7 @@
 
 <div class="function">
     <button class="add">
-        <a href="./add_product.html">Add Product</a>
+        @Html.ActionLink("Add Product", "AddProduct", "Admin")
     </button>
     <form action="" method="post">
         <input type="text" name="search">
@@ -22,134 +22,119 @@
 
 </div>
 <div class="container-home">
-    <div class="menu">
-        <ul>
-            <li class="menu-item">
-                <a href="./index.html">Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="">Account</a>
-            </li>
-            <li class="menu-item">
-                <a href="">Order</a>
-            </li>
-            <li class="menu-item">
-                <a href="./add_product.html">Add Product</a>
-            </li>
-            <li class="menu-item">
-                <a href="./login.html">Log Out</a>
-            </li>
-        </ul>
-    </div>
-    @model WatchShop.Models.ProductDetailAdmin
+
+    @Html.Partial("MenuBarAdmin")
+
+    @model WatchShop.Models.Product
     <div class="content">
         <form action="" method="post">
-     
-                <div class="row">
-                    <div>
-                        <label>Code</label>
-                        <input type="text" name="code" readonly value="@Model.Product.Id">
-                    </div>
 
-                    <div>
-                        <label>Product Name</label>
-                        <input type="text" name="name" readonly value="@Model.Product.Name">
-                    </div>
-
-                    <div>
-                        <label>Price</label>
-                        <input type="text" name="price" readonly value="@Model.Product.Price">
-                    </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Id)
+                    @Html.TextBoxFor(model => model.Id, new { @readonly = true })
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Image</label>
-                        <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
-                            @{
-                                for (int i = 0; i < Model.ListImage.Count; i++)
-                                {
-                                    <img width="300" height="300" src="/Content/image/product/@Model.ListImage[i].Url" />
-                                }
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                    @Html.TextBoxFor(model => model.Name, new { @readonly = true })
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Price)
+                    @Html.TextBoxFor(model => model.Price, new { @readonly = true })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Image</label>
+                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
+                        <img width="300" height="300" src="/Content/image/product/@Model.Avatar" />
+
+                        @{
+                            foreach (var Image in Model.Images)
+                            {
+                                <img width="300" height="300" src="/Content/image/product/@Image.Url" />
                             }
-                        </div>
-                       
-                    
-                    </div>
-
-
-                </div>
-
-                <div class="row">
-                    <div>
-                        <label>Discount</label>
-                        <input type="text" name="Discount" readonly value="@Model.Product.Discount">
-                    </div>
-
-                    <div>
-                        <label>Quantity Import</label>
-                        <input type="text" name="QuantityImport" readonly value="@Model.Product.Import">
-                    </div>
-
-                    <div>
-                        <label>Brand</label>
-                        <input type="text" name="Brand" readonly>
+                        }
                     </div>
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Gender</label>
-                        <input type="text" name="Gender" readonly value="@Model.Product.Gender">
-                    </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Discount)
+                    @Html.TextBoxFor(model => model.Discount, new { @readonly = true })
+                </div>
 
-                    <div>
-                        <label>Origin</label>
-                        <input type="text" name="Origin" readonly value="@Model.Product.Origin">
-                    </div>
+                <div>
+                    @Html.LabelFor(model => model.Import)
+                    @Html.TextBoxFor(model => model.Import, new { @readonly = true })
+                </div>
 
+                <div>
                     <div>
-                        <label>Warranty Period</label>
-                        <input type="text" name="Warranty Period" readonly value="@Model.Product.WarrantyPeriod">
+                        @Html.LabelFor(model => model.Brand)
+                        @Html.TextBoxFor(model => model.Brand1.Name, new { @readonly = true })
                     </div>
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Diameter</label>
-                        <input type="text" name="Diameter" readonly value="@Model.Product.Diameter">
-                    </div>
-
-                    <div>
-                        <label>Material</label>
-                        <input type="text" name="Material" readonly value="@Model.Product.Material">
-                    </div>
-
-                    <div>
-                        <label>Strap</label>
-                        <input type="text" name="Strap" readonly value="@Model.Product.Strap">
-                    </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Gender)
+                    @Html.TextBoxFor(model => model.Gender, new { @readonly = true })
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Apparatus</label>
-                        <input type="text" name="Apparatus" readonly value="@Model.Product.Apparatus">
-                    </div>
 
-                    <div>
-                        <label>Water Proof</label>
-                        <input type="text" name="WaterProof" readonly value="@Model.Product.Waterproof">
-                    </div>
+                <div>
+                    @Html.LabelFor(model => model.Origin)
+                    @Html.TextBoxFor(model => model.Origin, new { @readonly = true })
+                </div>
 
-                    <div>
-                        <label>Date Import</label>
-                        <input type="date" name="DateImport" readonly value="@Model.Product.CreateDate">
-                    </div>
+                <div>
+                    @Html.LabelFor(model => model.WarrantyPeriod)
+                    @Html.TextBoxFor(model => model.WarrantyPeriod, new { @readonly = true })
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Description</label>
-                        <textarea name="description" readonly>@Model.Product.Description</textarea>
-                    </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Diameter)
+                    @Html.TextBoxFor(model => model.Diameter, new { @readonly = true })
                 </div>
-            
+
+                <div>
+                    @Html.LabelFor(model => model.Material)
+                    @Html.TextBoxFor(model => model.Material, new { @readonly = true })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Strap)
+                    @Html.TextBoxFor(model => model.Strap, new { @readonly = true })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.Apparatus)
+                    @Html.TextBoxFor(model => model.Apparatus, new { @readonly = true })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Waterproof)
+                    @Html.TextBoxFor(model => model.Waterproof, new { @readonly = true })
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.CreateDate)
+                    @Html.TextBoxFor(model => model.CreateDate, new { @readonly = true })
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    @Html.LabelFor(model => model.WireWidth)
+                    @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Description)
+                    @Html.TextAreaFor(model => model.Description, new { @readonly = true })
+                </div>
+            </div>
+
 
 
             <div class="submit">
@@ -158,6 +143,7 @@
 
         </form>
     </div>
+
 </div>
 
 
