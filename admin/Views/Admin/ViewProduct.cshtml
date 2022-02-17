@@ -43,16 +43,14 @@
                     @Html.TextBoxFor(model => model.Price, new { @readonly = true })
                 </div>
             </div>
-            <div class="row">
-                <div>
-                    <label>Image</label>
-                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">
+            <div class="row" style="width: 100%">
+                <div style="width: 100%">
+                    <div style="display:flex; flex-direction: row; flex-wrap:wrap; justify-content:space-evenly;">
                         <img width="300" height="300" src="/Content/image/product/@Model.Avatar" />
-
                         @{
                             foreach (var Image in Model.Images)
                             {
-                                <img width="300" height="300" src="/Content/image/product/@Image.Url" />
+                                <img style="margin: 10px 0;" width="300" height="300" src="/Content/image/product/@Image.Url">
                             }
                         }
                     </div>
@@ -130,15 +128,24 @@
                     @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
                 </div>
                 <div>
+                    @Html.LabelFor(model => model.Stock)
+                    @Html.TextBoxFor(model => model.Stock, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div>
                     @Html.LabelFor(model => model.Description)
                     @Html.TextAreaFor(model => model.Description, new { @readonly = true })
                 </div>
             </div>
 
-
+       
 
             <div class="submit">
-                <button type="submit">Back</button>
+                <button onclick="history.go(-1);">
+                    Back
+                </button>
             </div>
 
         </form>

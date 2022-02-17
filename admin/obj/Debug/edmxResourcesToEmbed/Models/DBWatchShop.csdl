@@ -21,7 +21,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -55,7 +55,7 @@
     </Key>
     <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Customer" Type="Int32" />
+    <Property Name="Customer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="OrderDate" Type="DateTime" Precision="3" />
     <Property Name="OderDue" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Customer1" Relationship="Self.fk_customer" FromRole="Orders" ToRole="Customers" />

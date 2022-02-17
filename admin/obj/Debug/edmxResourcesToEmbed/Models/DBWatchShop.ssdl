@@ -20,7 +20,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="varchar" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="255" />
     <Property Name="Password" Type="nvarchar" MaxLength="255" />
     <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
@@ -50,7 +50,7 @@
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Status" Type="nvarchar" MaxLength="255" />
-    <Property Name="Customer" Type="int" />
+    <Property Name="Customer" Type="varchar" />
     <Property Name="OrderDate" Type="datetime" />
     <Property Name="OderDue" Type="datetime" />
   </EntityType>

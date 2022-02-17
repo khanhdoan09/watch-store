@@ -294,6 +294,7 @@
     <Content Include="Content\css\admin\header.css" />
     <Content Include="Content\css\admin\index.css" />
     <Content Include="Content\css\admin\info_product.css" />
+    <Content Include="Content\css\admin\order_detail.css" />
     <Content Include="Content\css\base.css" />
     <Content Include="Content\css\breadcrumb.css" />
     <Content Include="Content\css\cart.css" />
@@ -1103,11 +1104,13 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Admin\GetProduct.cshtml" />
-    <Content Include="Views\Admin\OrderInAdmin.cshtml" />
     <Content Include="Views\Admin\ViewProduct.cshtml" />
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Admin\GetUserList.cshtml" />
+    <Content Include="Views\Admin\GetOrderList.cshtml" />
+    <Content Include="Views\Admin\GetOrderDetail.cshtml" />
+    <Content Include="Views\Shared\MenuBarAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

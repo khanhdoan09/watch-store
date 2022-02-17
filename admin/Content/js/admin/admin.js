@@ -1,10 +1,11 @@
-﻿
+﻿/*
 function OnSuccess(e) {
     alert(e.text)
 }
-
+*/
 
 $('document').ready(function () {
+ 
     $("#imgLoad_1").change(function () {
         if (this.files && this.files[0]) {
             var reader = new FileReader();

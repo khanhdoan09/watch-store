@@ -71,17 +71,16 @@ new { enctype = "multipart/form-data" }))
             </div>
             <div class="row">
                 <div>
-                    <label>Image</label>
-                    <div style="display:flex;flex-wrap:wrap; justify-content:space-between">               
-                        <input name="image_1" type="file" id="imgLoad_1" />
+                    <div style="display:flex; flex-direction: row; flex-wrap:wrap; justify-content:space-evenly;">
+                        <input class="imgLoad" name="image_1" type="file" id="imgLoad_1"  style="width:fit-content;height:fit-content"/>
                         <img width="300" height="300" src="/Content/image/product/@Model.Avatar" id="imgShow_1" />
 
                         @{int CountI = 1;}
                         @foreach (var Image in Model.Images)
                         {
                             CountI += 1;
-                            <input name="image_@CountI" type="file" id="imgLoad_@CountI" />
-                            <img width="300" height="300" src="/Content/image/product/@Image.Url" id="imgShow_@CountI" />
+                            <input class="imgLoad" name="image_@CountI" type="file" id="imgLoad_@CountI" style="width:fit-content;height:fit-content"/>
+                            <img style="margin: 10px 0;" width="300" height="300" src="/Content/image/product/@Image.Url" id="imgShow_@CountI" />
                         }
                     </div>
                 </div>
@@ -162,7 +161,7 @@ new { enctype = "multipart/form-data" }))
 
                 <div>
                     @Html.LabelFor(model => model.CreateDate)
-                    @Html.TextBoxFor(model => model.CreateDate)
+                    @Html.TextBoxFor(model => model.CreateDate);
                     @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -172,6 +171,14 @@ new { enctype = "multipart/form-data" }))
                     @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
                     @Html.ValidationMessageFor(model => model.WireWidth, "", new { @class = "text-danger" })
                 </div>
+                <div>
+                    @Html.LabelFor(model => model.Stock)
+                    @Html.TextBoxFor(model => model.Stock, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
                 <div>
                     @Html.LabelFor(model => model.Description)
                     @Html.TextAreaFor(model => model.Description)
@@ -192,5 +199,4 @@ new { enctype = "multipart/form-data" }))
     function OnSuccess(e) {
         alert(e.text)
     }
-
 </script>

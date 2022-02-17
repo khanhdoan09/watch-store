@@ -62,27 +62,26 @@
                 </div>
             </div>
             <div class="row">
-                <div>
-                    <label>Image</label>
-                    <input name="image1" type="file" id="imgLoad_1" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg1" width="300" height="300" id="imgShow_1" />
-                    <input name="image2" type="file" id="imgLoad_2" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg2" width="300" height="300" id="imgShow_2" />
-                    <input name="image3" type="file" id="imgLoad_3" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg3" width="300" height="300" id="imgShow_3" />
-                    <input name="image4" type="file" id="imgLoad_4" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg4" width="300" height="300" id="imgShow_4" />
-                    <input name="image5" type="file" id="imgLoad_5" required />
-                    <img src="~/Content/image/product/@ViewBag.LinkImg5" width="300" height="300" id="imgShow_5" />
+                <div style="display:flex; flex-direction: row; flex-wrap:wrap; justify-content:space-evenly;">
+                    <input name="image1" type="file" id="imgLoad_1" style="width:fit-content;height:fit-content" required />
+                    <img style="margin: 10px 0;" src="~/Content/image/product/@ViewBag.LinkImg1" width="300" height="300" id="imgShow_1" />
+                    <input name="image2" type="file" id="imgLoad_2" style="width:fit-content;height:fit-content" required />
+                    <img style="margin: 10px 0;" src="~/Content/image/product/@ViewBag.LinkImg2" width="300" height="300" id="imgShow_2" />
+                    <input name="image3" type="file" id="imgLoad_3" style="width:fit-content;height:fit-content" required />
+                    <img style="margin: 10px 0;" src="~/Content/image/product/@ViewBag.LinkImg3" width="300" height="300" id="imgShow_3" />
+                    <input name="image4" type="file" id="imgLoad_4" style="width:fit-content;height:fit-content" required />
+                    <img style="margin: 10px 0;" src="~/Content/image/product/@ViewBag.LinkImg4" width="300" height="300" id="imgShow_4" />
+                    <input name="image5" type="file" id="imgLoad_5" style="width:fit-content;height:fit-content" required />
+                    <img style="margin: 10px 0;" src="~/Content/image/product/@ViewBag.LinkImg5" width="300" height="300" id="imgShow_5" />
                     <!--
-                    <form action="/Admin/UploadImage" method="post" enctype="multipart/form-data">
-                        <div>Hinh anh</div>
-                        <input name="image" type="file" />
+        <form action="/Admin/UploadImage" method="post" enctype="multipart/form-data">
+            <div>Hinh anh</div>
+            <input name="image" type="file" />
 
-                        <input type="submit" value="Upload" />
-                    </form>
-                    <h1>@ViewBag.LinkImage</h1>
-                    -->
+            <input type="submit" value="Upload" />
+        </form>
+        <h1>@ViewBag.LinkImage</h1>
+        -->
                 </div>
 
 
@@ -170,6 +169,13 @@
                     @Html.TextBoxFor(model => model.WireWidth, new { @required = true })
                     @Html.ValidationMessageFor(model => model.WireWidth, "", new { @class = "text-danger" })
                 </div>
+                <div>
+                    @Html.LabelFor(model => model.Stock)
+                    @Html.TextBoxFor(model => model.Stock, new { @required = true })
+                    @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
                 <div>
                     @Html.LabelFor(model => model.Description)
                     @Html.TextAreaFor(model => model.Description, new { @required = true })

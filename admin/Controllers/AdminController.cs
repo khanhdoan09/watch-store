@@ -90,8 +90,6 @@ namespace WatchShop.Controllers
 
                     if (ProductSelected != null)
                     {
-
-
                         var i1 = Request.Files["image_1"];
                         var i2 = Request.Files["image_2"];
                         var i3 = Request.Files["image_3"];
@@ -127,7 +125,7 @@ namespace WatchShop.Controllers
 
 
                         ProductSelected.Name = productEdit.Name;
-                        ProductSelected.Avatar = productEdit.Avatar;
+                        ProductSelected.Avatar = product.Id + "_1.jpg";
                         ProductSelected.Price = productEdit.Price;
                         ProductSelected.Discount = productEdit.Discount;
                         ProductSelected.Import = productEdit.Import;
@@ -144,21 +142,14 @@ namespace WatchShop.Controllers
                         ProductSelected.Waterproof = productEdit.Waterproof;
                         ProductSelected.Description = productEdit.Description;
                         ProductSelected.CreateDate = productEdit.CreateDate;
+                        ProductSelected.UpdateDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
                     }
 
-                    /*
-                    List<Image> ListImage = (from image in context.Images
-                                         where image.Product == IdOld
-                                         select image).ToList(); 
-                    if (ListImage != null)
-                    {
-
-                    }*/
+                
                     context.SaveChanges();
                 }
 
             }
-
 
             return Json(new { text = "edit success" }, JsonRequestBehavior.AllowGet);
         }
@@ -229,7 +220,7 @@ namespace WatchShop.Controllers
 
                 using (var context = new DbWatchShopEntities())
                 {
-                    var IsExistBrand = context.Brands.FirstOrDefault(brand => brand.Name==product.Brand);
+                    Brand IsExistBrand = context.Brands.FirstOrDefault(brand => brand.Name.ToLower()==product.Brand.ToLower());
                     // neu chua co brand thi them brand moi
                     if (IsExistBrand == null)
                     {
@@ -240,12 +231,15 @@ namespace WatchShop.Controllers
                         });
                         product.Brand = "B" + length;
                     }
-
+                    else
+                    {
+                        product.Brand = IsExistBrand.Id;
+                    }
                     context.Products.Add(new Product
                     {
                         Id = product.Id,
                         Name = product.Name,
-                        Avatar = product.Avatar,
+                        Avatar = product.Id + "_1.jpg",
                         Price = product.Price,
                         Discount = product.Discount,
                         Import = product.Import,
@@ -268,9 +262,9 @@ namespace WatchShop.Controllers
                     {
                         context.SaveChanges();
                     }
-                    catch (Exception e)
+                    catch (SqlException e)
                     {
-                        ModelState.AddModelError("Id", "Id already exists.");
+                        ModelState.AddModelError("Id", "Id already exists." + e.Message);
                     }
 
 
