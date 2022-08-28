@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid bg-light breadcrumb-section">
+    <div class="container pt-2">
+        <div aria-label="breadcrumb ">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Personal</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <section class="py-5 header">
+        <div class="container py-4">
+            <div class="d-flex align-items-center pb-3">
+                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" width="60px" alt="">
+                <div class="px-3">
+                    <h5 class="title">LeMinhChanh</h5>
+                    <a href="">Change avatar</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <!-- Tabs nav -->
+                    <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+                         aria-orientation="vertical">
+                        <a class="nav-link mb-3 p-3 shadow active" id="v-pills-home-tab" data-toggle="pill"
+                           href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            <i class="fa fa-user-circle-o mr-2"></i>
+                            <span class="font-weight-bold small text-uppercase">Personal information</span>
+                        </a>
+
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-profile-tab" data-toggle="pill"
+                           href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <i class="fa fa-calendar-minus-o mr-2"></i>
+                            <span class="font-weight-bold small text-uppercase">Order</span>
+                        </a>
+
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-messages-tab" data-toggle="pill"
+                           href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                            <span class="font-weight-bold small text-uppercase">Reviews</span>
+                        </a>
+
+                        <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab" data-toggle="pill"
+                           href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <span class="font-weight-bold small text-uppercase">Change Password</span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-9 col-md-12">
+                    <!-- Tabs content -->
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade shadow rounded bg-white show active p-5" id="v-pills-home"
+                             role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <h4 class="font-italic mb-4">Personal information</h4>
+                            <form action="">
+                                <div class="row g-3 align-items-center  pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Full Name</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" value="123456795">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Email</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="email" class="form-control" value="123456795">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Phone</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="phone" class="form-control" value="123456795">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Gender</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="gender" class="form-control" value="male">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Birth Date</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="date" class="form-control" value="male">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-save">
+                                    Save
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class=" tab-pane fade shadow rounded bg-white p-5" id="v-pills-profile" role="tabpanel"
+                             aria-labelledby="v-pills-profile-tab">
+                            <h4 class="font-italic mb-4">Order</h4>
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Country</th>
+                                                            <th scope="col">Browser</th>
+                                                            <th scope="col">Platform(s)</th>
+                                                            <th scope="col">Engine version</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="customtable">
+                                                        <tr>
+
+                                                            <td>India</td>
+                                                            <td>Chrome OS</td>
+                                                            <td>MAC OS</td>
+                                                            <td>76</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>USA</td>
+                                                            <td>Internet Explorer</td>
+                                                            <td>Win 2010</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>UK</td>
+                                                            <td>Safari</td>
+                                                            <td>Mac OS</td>
+                                                            <td>16</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>UAE</td>
+                                                            <td>Google Chrome</td>
+                                                            <td>Win 2013</td>
+                                                            <td>76.12</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>Canada</td>
+                                                            <td>Internet Explorer</td>
+                                                            <td>Win 2010</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>Turkey</td>
+                                                            <td>Internet Explorer 8</td>
+                                                            <td>Win 2010</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-messages" role="tabpanel"
+                             aria-labelledby="v-pills-messages-tab">
+                            <h4 class="font-italic mb-4">Reviews</h4>
+                            <p class="font-italic text-muted mb-2">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+
+                        <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-settings" role="tabpanel"
+                             aria-labelledby="v-pills-settings-tab">
+                            <h4 class="font-italic mb-4">Change Password</h4>
+                            <form action="">
+                                <div class="row g-3 align-items-center  pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Old Password</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center  pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">New Password</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row g-3 align-items-center  pb-3">
+                                    <div class="col-2">
+                                        <label class="col-form-label">Confirm Password</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="form-text">
+                                            Must be 8-20 characters long.
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-change" type="submit">
+                                    Change Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+

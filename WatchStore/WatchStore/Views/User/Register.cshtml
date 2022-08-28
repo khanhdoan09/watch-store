@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid bg-light breadcrumb-section">
+    <div class="container pt-2">
+        <div aria-label="breadcrumb ">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Register Account</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-5">
+    <h1 class="title text-center pb-3">Register Account</h1>
+    <div class="register">
+        <form action="" class="d-flex m-auto flex-column">
+
+            <input type="text" placeholder="Enter your full name" required>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <input type="text" placeholder="Enter your email" required>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <input type="password" placeholder="Password" id="ipnPassword1" required>
+            <div class="position-relative">
+                <button class="position-absolute" type="button" id="btnPassword1">
+                    <span class="fas fa-eye"></span>
+                </button>
+            </div>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <input type="password" placeholder="Confirm password" id="ipnPassword2" required>
+            <div class="position-relative">
+                <button class="position-absolute" type="button" id="btnPassword2">
+                    <span class="fas fa-eye"></span>
+                </button>
+            </div>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <input type="text" placeholder="Enter your address" required>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <input type="text" placeholder="Enter your phone" required>
+            <!--            <span class="text-danger">Alert message</span>-->
+
+            <div class="option d-flex justify-content-between">
+                <a href="~/User/Login">Login</a>
+                <a href="~/User/Forgotpassword">Forgot Password</a>
+            </div>
+            <button type="submit" class="btn btn-register">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
+<script>
+    const ipnElement1 = document.querySelector('#ipnPassword1')
+    const btnElement1 = document.querySelector('#btnPassword1')
+    const ipnElement2 = document.querySelector('#ipnPassword2')
+    const btnElement2 = document.querySelector('#btnPassword2')
+
+    btnElement1.addEventListener('click', function () {
+        const currentType1 = ipnElement1.getAttribute('type')
+        ipnElement1.setAttribute(
+            'type',
+            currentType1 === 'password' ? 'text' : 'password'
+        )
+    })
+
+    btnElement2.addEventListener('click', function () {
+        const currentType2 = ipnElement2.getAttribute('type')
+        ipnElement2.setAttribute(
+            'type',
+            currentType2 === 'password' ? 'text' : 'password'
+        )
+    })
+</script>
+

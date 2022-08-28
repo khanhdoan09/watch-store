@@ -1,0 +1,252 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>My Admin</title>
+    <link rel="stylesheet" href="~/Content/admin/scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+    <div class="header container-fluid py-3">
+        <div class=" d-flex justify-content-between">
+            <div class="">
+                <img src="https://htmldemo.net/ruiz/ruiz/assets/images/logo/logo.png" alt="">
+            </div>
+            <div>
+                <span class="lead abc">
+                    Hello Lê Minh Chánh
+                </span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC6iPDSqcgCcAtdEz_rPY0B-sxqMd7hz0Hlg&usqp=CAU"
+                     class="avatar-admin" alt="">
+                <button class=" btn-out">
+                    Log Out
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--FULL MODAL PRODUCT TAB-->
+    <!--start modal product add-->
+
+    <div class="modal-dialog modal-fullscreen">
+        @model WatchStore.Models.Product
+        <form action="SaveAddProduct" method="post" enctype="multipart/form-data" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+            </div>
+            <div class="modal-body ">
+                <div>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-5">
+                        <div class="col-4">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Name, new { @required = true, @class = "form-control", @placeholder = "Enter Name" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Price, new { @required = true, @class = "form-control", @placeholder = "Enter Price" })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Discount, new { @required = true, @class = "form-control", @placeholder = "Enter Discount" })
+                                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Import, new { @required = true, @class = "form-control", @placeholder = "Enter Import" })
+                                @Html.ValidationMessageFor(model => model.Import, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Gender, new { @required = true, @class = "form-control", @placeholder = "Enter Gender" })
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Brand, new { @required = true, @class = "form-control", @placeholder = "Enter Brand" })
+                                @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Origin, new { @required = true, @class = "form-control", @placeholder = "Enter Origin" })
+                                @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.WarrantyPeriod, new { @required = true, @class = "form-control", @placeholder = "Enter Warranty" })
+                                @Html.ValidationMessageFor(model => model.WarrantyPeriod, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Diameter, new { @required = true, @class = "form-control", @placeholder = "Enter Diameter" })
+                                @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Material, new { @required = true, @class = "form-control", @placeholder = "Enter Material" })
+                                @Html.ValidationMessageFor(model => model.Material, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Strap, new { @required = true, @class = "form-control", @placeholder = "Enter Strap" })
+                                @Html.ValidationMessageFor(model => model.Strap, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.WireWidth, new { @required = true, @class = "form-control", @placeholder = "Enter Wire Width" })
+                                @Html.ValidationMessageFor(model => model.WireWidth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Apparatus, new { @required = true, @class = "form-control", @placeholder = "Enter Apparatus" })
+                                @Html.ValidationMessageFor(model => model.Apparatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.Waterproof, new { @required = true, @class = "form-control", @placeholder = "Enter Waterproof" })
+                                @Html.ValidationMessageFor(model => model.Waterproof, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.TextBoxFor(model => model.CreateDate, new { @required = true, @class = "form-control", @placeholder = "Enter Create Date" })
+                                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <p>Avatar</p>
+                                <input required class="img-load" name="image_1" type="file" id="imgLoad_1" data-imgshow="imgShow_1" />
+                                <img id="imgShow_1"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <input required class="img-load" name="image_2" type="file" id="imgLoad_2" data-imgshow="imgShow_2" />
+                                <img id="imgShow_2"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <input required class="img-load" name="image_3" type="file" id="imgLoad_3" data-imgshow="imgShow_3" />
+                                <img id="imgShow_3"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <input required class="img-load" name="image_4" type="file" id="imgLoad_4" data-imgshow="imgShow_4" />
+                                <img id="imgShow_4"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <input required class="img-load" name="image_5" type="file" id="imgLoad_5" data-imgshow="imgShow_5" />
+                                <img id="imgShow_5"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-5">
+                        @Html.TextAreaFor(model => model.Description, new { @required = true, @class = "form-control", @placeholder = "Enter Description" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btns btns-close">
+                    <a href="./index.html">Close</a>
+                </button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <!--end modal product add-->
+    <!--end main-->
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script type="text/css" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" />
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+    <!-- co cai nay thi validation chay -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script>
+        // load image
+        $(function () {
+            $(".img-load").each(function () {
+                $(this).change(function () {
+                    let imgShow = $(this).data("imgshow")
+                    if (this.files) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#' + imgShow).attr('src', e.target.result);
+                        }
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid bg-light breadcrumb-section">
+    <div class="container pt-2">
+        <div aria-label="breadcrumb ">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-5 pb-5">
+    <div class="row gy-5">
+        <div class="col-lg-6 col-md-12">
+            <h5 class="title">Billing Details</h5>
+            <div class="d-flex flex-column bill-info">
+                <input type="text" placeholder="Enter your name">
+                <input type="text" placeholder="Enter your email">
+                <input type="text" placeholder="Enter your phone">
+                <input type="text" placeholder="Enter your address">
+                <input type="text" placeholder="Enter your note">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 your-order bg-light">
+            <h5 class="title">Your Order</h5>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center vertical-middle" scope="col">Product</th>
+                            <th class="text-center vertical-middle" scope="col">Quantity</th>
+                            <th class="text-center vertical-middle" scope="col">Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Vestibulum suscipit</th>
+                            <td class="text-center vertical-middle">2</td>
+                            <td class="text-center vertical-middle">£165.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Vestibulum suscipit</th>
+                            <td class="text-center vertical-middle">2</td>
+                            <td class="text-center vertical-middle">£165.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Vestibulum suscipit</th>
+                            <td class="text-center vertical-middle">2</td>
+                            <td class="text-center vertical-middle">£165.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Payment Method</th>
+                            <td class="text-center vertical-middle"></td>
+                            <td class="text-center vertical-middle">Cash</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Shipping</th>
+                            <td class="text-center vertical-middle"></td>
+                            <td class="text-center vertical-middle">£5.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center vertical-middle">Subtotal</th>
+                            <td class="text-center vertical-middle"></td>
+                            <td class="text-center vertical-middle">£165.00</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <button class="btn btn-place">
+                Place Order
+            </button>
+        </div>
+    </div>
+</div>
+

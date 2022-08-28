@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container pt-5 pb-5">
+    <h1 class="title text-center pb-4">Login Account</h1>
+    <div class="login">
+        <form action="" class="d-flex m-auto flex-column">
+
+            <input type="text" placeholder="Enter your email" required>
+            <span class="text-danger">Alert message</span>
+            <input type="password" placeholder="Password" required>
+            <span class="text-danger">Alert message</span>
+
+            <div class="option d-flex justify-content-between">
+                <a href="~/User/Register">Register</a>
+                <a href="./forgotpassword.html">Forgot Password</a>
+            </div>
+
+            <button type="submit" class="btn btn-login">
+                Login
+            </button>
+        </form>
+    </div>
+</div>
+

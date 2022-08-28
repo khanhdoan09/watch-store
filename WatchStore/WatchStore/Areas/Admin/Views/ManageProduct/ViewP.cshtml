@@ -1,0 +1,195 @@
+﻿
+@model WatchStore.Models.Product
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>View</title>
+    <link rel="stylesheet" href="~/Content/admin/scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+
+    <!--FULL MODAL PRODUCT TAB-->
+    <!--start modal product add-->
+    <div class="container-fluid py-3">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Product</h5>
+            </div>
+            <div class="modal-body ">
+                <form>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                    <div class="row mb-5">
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Id)
+                                @Html.TextBoxFor(model => model.Id, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Name)
+                                @Html.TextBoxFor(model => model.Name, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Price)
+                                @Html.TextBoxFor(model => model.Price, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Discount)
+                                @Html.TextBoxFor(model => model.Discount, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Import)
+                                @Html.TextBoxFor(model => model.Import, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Gender)
+                                @Html.TextBoxFor(model => model.Gender, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Brand)
+                                @Html.TextBoxFor(model => model.Brand, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Origin)
+                                @Html.TextBoxFor(model => model.Origin, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.WarrantyPeriod)
+                                @Html.TextBoxFor(model => model.WarrantyPeriod, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Diameter)
+                                @Html.TextBoxFor(model => model.Diameter, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Material)
+                                @Html.TextBoxFor(model => model.Material, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Strap)
+                                @Html.TextBoxFor(model => model.Strap, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.WireWidth)
+                                @Html.TextBoxFor(model => model.WireWidth, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Apparatus)
+                                @Html.TextBoxFor(model => model.Apparatus, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.Waterproof)
+                                @Html.TextBoxFor(model => model.Waterproof, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-outline">
+                                @Html.LabelFor(model => model.CreateDate)
+                                @Html.TextBoxFor(model => model.CreateDate, new { @readonly = true, @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-3">
+                            <div class="form-outline">
+                                <p>Avatar</p>
+                                <img src="/Content/img/product/@Model.Avatar"
+                                     class="avatar-product img-thumbnail"
+                                     alt="">
+                            </div>
+                        </div>
+                        @{
+                            foreach (var Image in Model.Images)
+                            {
+                                <div class="col-3">
+                                    <div class="form-outline">
+                                        <img src="/Content/img/product/@Image.Url"
+                                             class="avatar-product img-thumbnail"
+                                             alt="">
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="form-outline mb-5">
+                        @Html.LabelFor(model => model.Description)
+                        @Html.TextAreaFor(model => model.Description, new { @readonly = true, @class = "form-control" })
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btns btns-close">
+                    <a href="./index.html">Close</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--end modal product add-->
+    <!--end main-->
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script type="text/css" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" />
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+</body>
+
+</html>

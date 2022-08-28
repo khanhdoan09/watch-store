@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid bg-light breadcrumb-section">
+    <div class="container pt-2">
+        <div aria-label="breadcrumb ">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container pt-5 pb-5">
+    <div class="row gy-5">
+        <div class="col-lg-6 col-md-12 pt-3">
+            <form action="">
+                <h5 class="title text-uppercase">TELL US YOUR PROJECT</h5>
+                <div class="d-flex flex-column contact-form">
+                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your subject" required>
+                    <textarea placeholder="Message" rows="10"></textarea>
+                </div>
+                <button class="btn btn-send" type="submit">
+                    Send
+                </button>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-12 contact-info bg-light">
+            <h5 class="title text-uppercase">CONTACT US</h5>
+            <p>lorem ipsum dolor sit amet, consectetur adip lorem ipsum dollorem ipsum dolor sit amet, consectetur adip lorem ipsum dolorlorem ipsum dolor sit amet, consectetur adip lorem ipsum dolorlorem ipsum dolor sit amet, consectetur adip lorem ipsum dolorlorem ipsum dolor sit amet, consectetur adip lorem ipsum doloror</p>
+            <h5 class="title"><i class="fa-solid fa-location-dot"></i> <span class="px-3">No 40 Baria Sreet 133/2 NewYork City</span></h5>
+            <h5 class="title"><i class="fa-solid fa-envelope"></i> <span class="px-3">minhchanh@gmail.com</span></h5>
+            <h5 class="title"><i class="fa-solid fa-phone"></i> <span class="px-3">0(1234) 567 890</span></h5>
+            <h5 class="title"><i class="fa-solid fa-clock"></i> <span class="px-3">08AM – 22PM</span></h5>
+
+
+        </div>
+    </div>
+</div>
+
